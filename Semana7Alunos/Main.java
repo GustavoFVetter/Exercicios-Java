@@ -34,11 +34,7 @@ public class Main {
         
         Aluno Aluno3 = new Aluno();
         System.out.println("Digite o nome do Aluno:");
-        Aluno3.setNomeAluno(leia.next());
-        /*Na linha acima tem um erro. Se digitar o nome do aluno somente "Aldo"
-        o programa roda normal. Mas se digitar um nome composto "Aldo da 
-        Silva" dá um erro e encerra a execução do programa.
-        */
+        Aluno3.setNomeAluno(leia.nextLine());
         System.out.println("Digite o codigo do Aluno:");
         Aluno3.setCodigoAluno(leia.nextInt());
         System.out.println("Digite a nota da prova do Aluno:");
