@@ -1,83 +1,130 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-package ConverterTermperaturasExercicioAulaOnLine;
+
+package VotacaoParaSindico;
 import java.util.Scanner;
-/**
- *
- * @author Gustavo F. Vetter 04/11/21
- */
+
 public class Main {
 
-    /**
-     Programa para o usuário ver conversao de temperaturas (C -> F ou F -> C).
-     Usuário vai ver uma escala de 1 a 100, da temperatura escolhida.
-     */
+    // Autor Gustavo F. Vetter 05/11/2021
+    
     public static void main(String[] args) {
         
-        int i = 0;
-        int opcaoMenu = 0;
-        double valorEmCelsius;
-        double valorEmFarenheit;
+        Scanner leia = new Scanner(System.in);
+        
+        String candUm;
+        String candDois;
+        String candTres;
+        int cand1 = 0;
+        int cand2 = 0;
+        int cand3 = 0;
+        int votoNulo = 0;
+        int nrVotantes = 0; 
+        int votosRegistrados = 0;
+        int senha;
+        int contraSenha = 0;
+        int votoDigitado;
+        
+        System.out.println("Inicio do processo de votacao para Sindico");
+        System.out.println(" ");
+        System.out.println("Informe o nr de votantes deste evento:");
+        nrVotantes = leia.nextInt();
+        System.out.println(" ");
+        System.out.println("Neste evento teremos " + nrVotantes + " votantes.");
+        System.out.println(" ");
+        
+        System.out.println("Informe o nome do(a) candidato(a) nr 1:");
+        candUm = leia.nextLine(); //Está passando direto nesta linha. Não espera atribuir o valor.
+        System.out.println("O candidato nr 1 eh: " + candUm); //Não está lendo esta linha
+        System.out.println(" "); //Não está lendo esta linha
+        
+        System.out.println("Informe o nome do(a) candidato(a) nr 2:");
+        candDois = leia.nextLine();
+        System.out.println("O candidato nr 2 eh: " + candDois);
+        System.out.println(" ");
+        
+        System.out.println("Informe o nome do(a) candidato(a) nr 3:");
+        candTres = leia.nextLine();
+        System.out.println("O candidato nr 3 eh: " + candTres);
+        System.out.println(" ");
+        
+        System.out.println("Informe uma senha numerica de 3 digitos:");
+        senha = leia.nextInt();
+        System.out.println("A senha digitada eh: " + senha);
+        System.out.println("Memorize esta senha.");
+        System.out.println(" ");
+        
+        while (votosRegistrados < nrVotantes){
+            System.out.println(" ");
+            System.out.println("Escolha um dos candidatos abaixo:");
+            System.out.println("Digite 1 para votar em: " + candUm);
+            System.out.println("Digite 2 para votar em: " + candDois);
+            System.out.println("Digite 3 para votar em: " + candTres);
+            System.out.println(" ");
+            votoDigitado = leia.nextInt();
+            
+            
+            
+            switch (votoDigitado){
+                case 1:
+                    cand1 = cand1 + 1;
+                    votosRegistrados = votosRegistrados + 1;
+                    System.out.println(" ");
+                    System.out.println("Voce votou em: " + candUm);
+                    break;
                 
-        Scanner leitor = new Scanner(System.in);
-        
-        while(opcaoMenu != 3){
-
-        // Menu com a opções para o usuário:
-        System.out.println(" ");
-        System.out.println("Escolha uma das opcoes abaixo:");
-        System.out.println("1 - Converter Celsius para Farenheit");
-        System.out.println("2 - Converter Farentheit para Celsius");
-        System.out.println("3 - Encerrar o programa.");
-        System.out.println(" ");
-        opcaoMenu = leitor.nextInt();
-        System.out.println(" ");
-        
-        
-        switch(opcaoMenu){
-            case 1: // Opcao escolhida: Converter Celsius para Farenheit
-                System.out.println("Opcao escolhida: Converter Celsius para"
-                        + " Farenheit");
-                System.out.println(" ");
-                i = 0;
-                valorEmCelsius = 0;
-                for (; i < 101; i++){
-                valorEmFarenheit = (valorEmCelsius * 1.8) + 32;
-                System.out.println(i + " Graus Celsius equivale(m) a " + 
-                        valorEmFarenheit + " Graus Farenheit");
-                valorEmCelsius = valorEmCelsius + 1;
-                }
-                break;
-        
-            case 2: // Opcao escolhida: Converter Farenheit para Celsius
-                System.out.println("Opcao escolhida: Converter Farenheit para "
-                        + "Celsius");
-                System.out.println(" ");
-                i = 0;
-                valorEmFarenheit = 0;
-                for (; i < 101; i++){
-                valorEmCelsius = (valorEmFarenheit - 32) / 1.8;
-                System.out.println(i + " Graus Farenheit equivale(m) a " + 
-                        valorEmCelsius + " Graus Celsius");
-                valorEmFarenheit = valorEmFarenheit + 1;
-                }
-                break;
-            default: // Caso opção seja diferente de 3
-                if (opcaoMenu != 3){
+                case 2:
+                    cand2 = cand2 + 1;
+                    votosRegistrados = votosRegistrados + 1;
                     System.out.println(" ");
-                    System.out.println("Opcao invalida. Digite 1, 2 ou 3. ");
+                    System.out.println("Voce votou em: " + candDois);
+                    break;
+                
+                case 3:
+                    cand3 = cand3 + 1;
+                    votosRegistrados = votosRegistrados + 1;
                     System.out.println(" ");
-                                    }
-    }
-        // Caso usuário digite 3 --> encerrar o programa
-        if (opcaoMenu == 3){
-        System.out.println(" ");
-        System.out.println("Obrigado por utilizar nosso sistema de conversao"
-                + " de temperaturas. Ate a proxima.");
-        System.out.println(" ");
+                    System.out.println("Voce votou em: " + candTres);
+                    break;
+                
+                default:
+                    votoNulo = votoNulo + 1;
+                    votosRegistrados = votosRegistrados + 1;
+                    System.out.println(" ");
+                    System.out.println("Voto nulo ou invalido");
+            }
         }
-}
-}
+        
+        if (votosRegistrados == nrVotantes){
+            System.out.println(" ");    
+            System.out.println("Votacao encerrada.");
+            }
+        
+        while (senha != contraSenha){
+        System.out.println(" ");
+        System.out.println("Informe a senha para apurar os votos:");
+        contraSenha = leia.nextInt();
+            if(contraSenha == senha)
+            {
+            System.out.println(" ");
+            System.out.println("Total de votos registrados neste evento: "
+                    + votosRegistrados + " voto(s)");
+            System.out.println(candUm + " teve " + cand1 + " voto(s).");
+            // Aqui quero imprimir o percentual dos votos obtidos.
+            // Diferenciar entre votos não nulos e total de votantes.
+            System.out.println(candDois + " teve " + cand2 + " voto(s).");
+            // Aqui quero imprimir o percentual dos votos obtidos.
+            // Diferenciar entre votos não nulos e total de votantes.
+            System.out.println(candTres + " teve " + cand3 + " voto(s).");
+            // Aqui quero imprimir o percentual dos votos obtidos.
+            // Diferenciar entre votos não nulos e total de votantes.
+            System.out.println("Total de votos nulos ou invalidos: " 
+                    + votoNulo + " voto(s).");
+            // Aqui quero imprimir o percentual dos votos obtidos.
+            } 
+            else
+            {
+                System.out.println("Senha incorreta. Digite novamente.");
+            }
+        }
+    }
+    
 }
